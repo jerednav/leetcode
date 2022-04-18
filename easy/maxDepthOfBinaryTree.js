@@ -10,6 +10,8 @@
  * @param {TreeNode} root
  * @return {number}
  */
+
+//DFS
 var maxDepth = function(root) {
     if (root == null) {
         return null
