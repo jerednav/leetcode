@@ -11,21 +11,22 @@
  * @return {number}
  */
 var diameterOfBinaryTree = function(root) {
-    //create global variable
-    let res = [0]
+     let diameter = 0;
     
-    //going bottom to top
-    let dfs = function(root) {
-        if (!root) {
-            return -1
-        }
-        let left = dfs(root.left)
-        let right = dfs(root.right)
+    dfs(root);
+    
+    return diameter;
+    
+      function dfs(node) {
+        if (!node) return 0;
         
-        res[0] = Math.max(2 + left + right)
+        const left = dfs(node.left);
+        const right = dfs(node.right);
         
-        return 1 + Math.max(left,right)
+        // update diameter at every node
+        diameter = Math.max(diameter, left + right);
+
+        // update the largest number of edge so far
+        return 1 + Math.max(left, right);
     }
-    dfs(root)
-    return res[0]
 };
