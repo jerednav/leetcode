@@ -21,6 +21,7 @@ var isBalanced = function(root) {
         
         //if any subtree is not balanced, encrypt Infinity,
         //Infinity is always bigger than any value, so we can bubble up the infinity value all the way to the root
+        //if the value is greater than 2, then it can NOT be balanced
         if (Math.abs(left - right) > 1) return Infinity
         
         return Math.max(left, right)
