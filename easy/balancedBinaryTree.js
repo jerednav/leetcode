@@ -10,6 +10,26 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
+
+var isBalanced = function(root) {
+    let res = true
+    const dfs = (root) => {
+        if (!root) return 0
+        let left = dfs(root.left)
+        let right = dfs(root.right)
+        if (left - right > 1 || right - left > 1) {
+            res = false
+        }
+        return Math.max(left, right) + 1
+        
+    }
+    dfs(root)
+    return res
+};
+
+//OR 
+
+
 var isBalanced = function(root) {
     function dfs(node){
         if (!node) return true;
